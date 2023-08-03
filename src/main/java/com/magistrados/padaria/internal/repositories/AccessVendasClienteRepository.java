@@ -1,4 +1,4 @@
-package com.magistrados.padaria.interfaces.repositories;
+package com.magistrados.padaria.internal.repositories;
 
 import com.magistrados.padaria.api.database.ConnectionProvider;
 import com.magistrados.padaria.api.repositories.VendasClienteRepository;

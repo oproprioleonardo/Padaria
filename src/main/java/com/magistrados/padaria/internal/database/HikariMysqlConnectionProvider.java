@@ -1,4 +1,4 @@
-package com.magistrados.padaria.interfaces.database;
+package com.magistrados.padaria.internal.database;
 
 import com.magistrados.padaria.api.database.ConnectionProvider;
 import com.magistrados.padaria.api.database.config.DatabaseConfig;
@@ -8,19 +8,19 @@ import com.zaxxer.hikari.HikariDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class HikariPostgresConnectionProvider implements ConnectionProvider {
+public class HikariMysqlConnectionProvider implements ConnectionProvider {
+
     private final HikariDataSource dataSource;
 
-    public HikariPostgresConnectionProvider(DatabaseConfig databaseConfig) {
+    public HikariMysqlConnectionProvider(DatabaseConfig databaseConfig) {
         final HikariConfig config = new HikariConfig();
 
-        config.setJdbcUrl("jdbc:postgresql://" + databaseConfig.getHost() + "/" + databaseConfig.getDatabase());
+        config.setJdbcUrl("jdbc:mysql://" + databaseConfig.getHost() + "/" + databaseConfig.getDatabase());
         config.setUsername(databaseConfig.getUser());
         config.setPassword(databaseConfig.getPassword());
-
-        config.setMaximumPoolSize(10); // Número máximo de conexões no pool
-        config.setMinimumIdle(2);      // Número mínimo de conexões inativas no pool
-        config.setIdleTimeout(30000);  // Tempo máximo em milissegundos para uma conexão ficar inativa no pool
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
         this.dataSource = new HikariDataSource(config);
     }

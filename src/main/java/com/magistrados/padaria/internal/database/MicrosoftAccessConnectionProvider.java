@@ -1,4 +1,4 @@
-package com.magistrados.padaria.interfaces.database;
+package com.magistrados.padaria.internal.database;
 
 import com.magistrados.padaria.api.database.ConnectionProvider;
 

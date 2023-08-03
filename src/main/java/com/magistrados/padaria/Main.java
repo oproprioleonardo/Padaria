@@ -4,9 +4,9 @@ import com.magistrados.padaria.api.database.ConnectionProvider;
 import com.magistrados.padaria.api.repositories.ClienteRepository;
 import com.magistrados.padaria.api.repositories.VendasClienteRepository;
 import com.magistrados.padaria.graph.Screen;
-import com.magistrados.padaria.interfaces.database.MicrosoftAccessConnectionProvider;
-import com.magistrados.padaria.interfaces.repositories.AccessClienteRepository;
-import com.magistrados.padaria.interfaces.repositories.AccessVendasClienteRepository;
+import com.magistrados.padaria.internal.database.MicrosoftAccessConnectionProvider;
+import com.magistrados.padaria.internal.repositories.AccessClienteRepository;
+import com.magistrados.padaria.internal.repositories.AccessVendasClienteRepository;
 import com.magistrados.padaria.services.VendasService;
 
 public class Main {
